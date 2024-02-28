@@ -42,7 +42,7 @@ window.addEventListener('load', function () {
 
 		//меняет текст модального окна
 		
-		document.querySelector('.text-popup').textContent = event.target.textContent
+		document.querySelector('.text-popup').innerHTML = `<div class="felx__item_text"><span>${event.target.closest('.flex__item').firstElementChild.firstElementChild.textContent}</span><span> ${event.target.closest('.flex__item').firstElementChild.lastElementChild.textContent}</span></div>`
 
 		popupBg.classList.add('active')
 
@@ -63,8 +63,6 @@ window.addEventListener('load', function () {
 		endItemBlock = endItemBlock[endItemBlock.length - 1];
 
 		newDiv.className = "flex__item";
-
-		console.log(endItemBlock.firstElementChild.firstElementChild);
 
 		newDiv.innerHTML=`<div class="felx__item_text"><span>${endItemBlock.firstElementChild.firstElementChild.textContent}</span><span> ${Number(endItemBlock.firstElementChild.lastElementChild.textContent) + Number(1)}</span></div>`
 
