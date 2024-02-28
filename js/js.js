@@ -64,7 +64,9 @@ window.addEventListener('load', function () {
 
 		newDiv.className = "flex__item";
 
-		newDiv.innerHTML=`<span>${Number(endItemBlock.lastElementChild.textContent) + Number(1)}</span>`
+		console.log(endItemBlock.firstElementChild.firstElementChild);
+
+		newDiv.innerHTML=`<div class="felx__item_text"><span>${endItemBlock.firstElementChild.firstElementChild.textContent}</span><span> ${Number(endItemBlock.firstElementChild.lastElementChild.textContent) + Number(1)}</span></div>`
 
 		endItemBlock.after(newDiv)
 

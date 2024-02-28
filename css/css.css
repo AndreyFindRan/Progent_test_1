@@ -58,7 +58,7 @@
     height: auto;
     border: 5px solid red;
 }
-.flex__item span{
+.flex__item .felx__item_text{
     display: block;
     margin: 5px;
 }
