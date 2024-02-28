@@ -53,7 +53,7 @@ window.addEventListener('load', function () {
 
 		}
 
-		let span = createSpan(element)
+		let span = createSpan(element,'modal')
 
 		document.querySelector('.text-popup').innerHTML = `<div class="felx__item_text">${span}</div>`
 
@@ -67,13 +67,13 @@ window.addEventListener('load', function () {
 
 	}
 
-	function createSpan(element) {
+	function createSpan(element,modal=null) {
 
 		let span = "";
 
 		for (var i = 0; i < element.children[0].children.length; i++) {
 
-			if(element.children[0].children.length - 1 == i){
+			if(element.children[0].children.length - 1 == i && modal == null){
 
 				span += `<span>${Number(element.children[0].children[i].innerHTML) + Number(1)}</span>`;
 
@@ -87,6 +87,7 @@ window.addEventListener('load', function () {
 		return span ;
 
 	}
+	
 
 	function addElement() {
 
