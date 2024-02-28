@@ -41,8 +41,21 @@ window.addEventListener('load', function () {
 	function popap_active(event) {
 
 		//меняет текст модального окна
-		
-		document.querySelector('.text-popup').innerHTML = `<div class="felx__item_text"><span>${event.target.closest('.flex__item').firstElementChild.firstElementChild.textContent}</span><span> ${event.target.closest('.flex__item').firstElementChild.lastElementChild.textContent}</span></div>`
+		let element ;
+
+		if(!event.target.classList.contains('flex__item')){
+
+			element = event.target.closest('.flex__item')
+
+		}else{
+
+			element = event.target
+
+		}
+
+		let span = createSpan(element)
+
+		document.querySelector('.text-popup').innerHTML = `<div class="felx__item_text">${span}</div>`
 
 		popupBg.classList.add('active')
 
@@ -51,6 +64,27 @@ window.addEventListener('load', function () {
 	function popap_not_active(event) {
 
 		popupBg.classList.remove('active')
+
+	}
+
+	function createSpan(element) {
+
+		let span = "";
+
+		for (var i = 0; i < element.children[0].children.length; i++) {
+
+			if(element.children[0].children.length - 1 == i){
+
+				span += `<span>${Number(element.children[0].children[i].innerHTML) + Number(1)}</span>`;
+
+			}else{
+
+				span += `<span>${element.children[0].children[i].innerHTML}</span>`;
+
+			}
+		  }
+
+		return span ;
 
 	}
 
@@ -64,7 +98,10 @@ window.addEventListener('load', function () {
 
 		newDiv.className = "flex__item";
 
-		newDiv.innerHTML=`<div class="felx__item_text"><span>${endItemBlock.firstElementChild.firstElementChild.textContent}</span><span> ${Number(endItemBlock.firstElementChild.lastElementChild.textContent) + Number(1)}</span></div>`
+		let span = createSpan(endItemBlock)
+
+		  
+		newDiv.innerHTML=`<div class="felx__item_text">${span}</div>`
 
 		endItemBlock.after(newDiv)
 

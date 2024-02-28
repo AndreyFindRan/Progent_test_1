@@ -58,8 +58,9 @@
     height: auto;
     border: 5px solid red;
 }
-.flex__item .felx__item_text{
-    display: block;
+.felx__item_text{
+    display: flex;
+    gap: 2px;
     margin: 5px;
 }
 .button{
